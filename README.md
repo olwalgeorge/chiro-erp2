@@ -1,15 +1,141 @@
-# chiro-erp
+# Chiro ERP - Consolidated Microservices Platform
 
-This project uses Quarkus, the Supersonic Subatomic Java Framework.
+## 🚀 Enterprise ERP System
+
+This project is a comprehensive **Enterprise Resource Planning (ERP) system** built with Quarkus, featuring a **consolidated microservices architecture** that groups 30+ original services into 8 business-domain-focused services for better operational efficiency and world-class ERP capabilities.
+
+🏗️ **Architecture**: 8 Consolidated Services (down from 30+ individual services)  
+📈 **Benefits**: 75% reduction in deployments, improved business alignment, simplified operations  
+🌟 **Patterns**: SAP ERP patterns (FI, MM, CO), Enterprise security, Hexagonal architecture
+
+## 📁 Project Structure
+
+```
+chiro-erp/
+├── services/           # 8 consolidated business services
+├── libs/              # Shared libraries and common code
+├── docs/              # 📖 Complete documentation
+│   ├── architecture/  # Architecture and design docs
+│   └── migration/     # Migration and consolidation docs
+├── scripts/           # 🔧 PowerShell automation scripts
+├── templates/         # 📋 Build and structure templates
+└── archived-original-structure/  # Legacy structure reference
+```
+
+## 🏗️ Consolidated Services Architecture
+
+### 8 Enterprise-Grade Business Services:
+1. **🔐 core-platform** - Security, Identity, Organization, Audit & Integration (6 domains)
+2. **👥 customer-relationship** - CRM, Client Management, Providers & Subscriptions (5 domains)  
+3. **⚙️ operations-service** - Field Service, Scheduling, Records & RMA (4 domains)
+4. **🛒 commerce** - E-commerce, POS, Customer Portal & Communication (4 domains)
+5. **💰 financial-management** - SAP FI: General Ledger, AP/AR, Assets, Tax & Expenses (6 domains)
+6. **🏭 supply-chain-manufacturing** - SAP MM: Production, Quality, Inventory, Costing & Procurement (5 domains)
+7. **🚚 logistics-transportation** - Fleet Management, TMS & WMS (3 domains)
+8. **📊 analytics-intelligence** - Data Products, AI/ML & Reporting (3 domains)
+
+**Total: 36 Domain Structures** following **Hexagonal Architecture** principles
+
+## 🚀 Quick Start
+
+### 1. Generate Complete Structure
+```powershell
+.\scripts\create-complete-structure.ps1
+```
+
+### 2. Build All Services
+```shell script
+./gradlew build
+```
+
+### 3. Run Specific Service
+```shell script
+./gradlew :services:customer-relationship:quarkusDev
+```
+
+## 📖 Documentation
+
+- **[📚 Complete Documentation](docs/)** - Architecture, migration, and implementation guides
+- **[🏗️ Architecture Overview](docs/architecture/ARCHITECTURE-SUMMARY.md)** - Comprehensive system architecture
+- **[🔄 Migration Guide](docs/migration/microservice-consolidation-plan.md)** - Consolidation strategy and roadmap
+- **[📋 Templates](templates/)** - Build templates and structure examples
+
+## 🔧 Development
+
+### Service-Specific Commands
+```shell script
+# Build specific service
+./gradlew :services:customer-relationship:build
+
+# Run in development mode with hot reload
+./gradlew :services:core-platform:quarkusDev
+
+# Run tests for all services
+./gradlew test
+```
+
+## 📦 Packaging and running the consolidated services
+
+All services can be built together:
+
+```shell script
+# Build all consolidated services
+./gradlew build
+
+# Build specific service
+./gradlew :services:customer-relationship:build
+```
+
+Each service produces a `quarkus-run.jar` file in its respective `build/quarkus-app/` directory.
+The services are runnable using `java -jar build/quarkus-app/quarkus-run.jar`.
+
+## Service-Specific Commands
+
+Each consolidated service supports custom Gradle tasks:
+
+```shell script
+# List business modules in a service
+./gradlew :services:customer-relationship:listModules
+
+# Validate module boundaries
+./gradlew :services:customer-relationship:validateModuleBoundaries
+
+# Generate module documentation  
+./gradlew :services:customer-relationship:generateModuleDocumentation
+```cture
+
+This project uses Quarkus, the Supersonic Subatomic Java Framework, with a **consolidated microservices architecture** that groups 30+ original services into 8 business-domain-focused multimodal services for better operational efficiency.
+
+🏗️ **Architecture**: 8 Consolidated Services (down from 30+ individual services)
+📈 **Benefits**: 75% reduction in deployments, improved business alignment, simplified operations
 
 If you want to learn more about Quarkus, please visit its website: <https://quarkus.io/>.
 
+## 🏗️ Consolidated Services Architecture
+
+### 8 Enterprise-Grade Business Services:
+1. **🔐 core-platform** - Security, Identity, Organization, Audit & Integration (6 domains)
+2. **👥 customer-relationship** - CRM, Client Management, Providers & Subscriptions (5 domains)  
+3. **⚙️ operations-service** - Field Service, Scheduling, Records & RMA (4 domains)
+4. **🛒 commerce** - E-commerce, POS, Customer Portal & Communication (4 domains)
+5. **💰 financial-management** - SAP FI: General Ledger, AP/AR, Assets, Tax & Expenses (6 domains)
+6. **🏭 supply-chain-manufacturing** - SAP MM: Production, Quality, Inventory, Costing & Procurement (5 domains)
+7. **🚚 logistics-transportation** - Fleet Management, TMS & WMS (3 domains)
+8. **📊 analytics-intelligence** - Data Products, AI/ML & Reporting (3 domains)
+
+**Total: 36 Domain Structures** following **Hexagonal Architecture** principles
+
 ## Running the application in dev mode
 
-You can run your application in dev mode that enables live coding using:
+You can run any consolidated service in dev mode that enables live coding:
 
 ```shell script
-./gradlew quarkusDev
+# Run a specific service
+cd services/customer-relationship
+../../gradlew quarkusDev
+
+# Or run from root (builds all services)
+./gradlew :services:customer-relationship:quarkusDev
 ```
 
 > **_NOTE:_**  Quarkus now ships with a Dev UI, which is available in dev mode only at <http://localhost:8080/q/dev/>.
