@@ -5,7 +5,7 @@ plugins {
 }
 
 dependencies {
-    implementation(enforcedPlatform("\:\:\"))
+    implementation(enforcedPlatform("io.quarkus.platform:quarkus-bom:3.17.0"))
     implementation("io.quarkus:quarkus-rest-jackson")
     implementation("io.quarkus:quarkus-kotlin")
     implementation("io.quarkus:quarkus-hibernate-reactive-panache-kotlin")
